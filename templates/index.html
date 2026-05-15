@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlgoSense – AI-Powered Algorithm Selector</title>
+  <meta name="description" content="Upload your dataset and let AlgoSense automatically find the best machine learning algorithm using meta-learning – with real metrics, charts, and explainability." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ PARTICLES BG ══ -->
+<div id="particles"></div>
+
+<!-- ══════════════════════════════════════ NAVBAR ══════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">AlgoSense</span>
+    </div>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#vs-chatgpt">Why Not ChatGPT?</a>
+      <a href="#upload-section" class="btn-nav">Try It Free</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🧠 Meta-Learning · AutoML · Explainable AI</div>
+    <h1 class="hero-title">
+      Let Your Data<br/>
+      <span class="gradient-text">Pick Its Champion</span>
+    </h1>
+    <p class="hero-subtitle">
+      Upload any CSV dataset and AlgoSense will <strong>actually run</strong> 7 machine learning algorithms on your data,
+      benchmark them in real-time, and tell you exactly which one wins — and <em>why</em>.
+    </p>
+    <div class="hero-cta">
+      <a href="#upload-section" class="btn-primary">
+        <span>Analyze My Dataset</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-pill">🤖 7 Algorithms Tested</div>
+      <div class="stat-pill">📊 8 Metrics Compared</div>
+      <div class="stat-pill">🔍 Real Scores, Not Guesses</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="algo-orbit">
+      <div class="orbit-center">⚡</div>
+      <div class="orbit-ring ring-1">
+        <div class="orbit-item" style="--angle:0deg">RF</div>
+        <div class="orbit-item" style="--angle:51.4deg">SVM</div>
+        <div class="orbit-item" style="--angle:102.8deg">KNN</div>
+        <div class="orbit-item" style="--angle:154.2deg">DT</div>
+        <div class="orbit-item" style="--angle:205.7deg">LR</div>
+        <div class="orbit-item" style="--angle:257.1deg">GB</div>
+        <div class="orbit-item" style="--angle:308.5deg">NB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ HOW IT WORKS ═══ -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Process</div>
+      <h2 class="section-title">How AlgoSense Works</h2>
+      <p class="section-sub">Four steps from raw data to confident recommendation</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-step="01">
+        <div class="step-icon">📁</div>
+        <h3>Upload CSV</h3>
+        <p>Drop your dataset. AlgoSense auto-detects the target column and handles missing values & encoding.</p>
+      </div>
+      <div class="step-card" data-step="02">
+        <div class="step-icon">🔬</div>
+        <h3>Extract Meta-Features</h3>
+        <p>We compute 8 dataset characteristics — sample size, class balance, variance, skewness, correlation and more.</p>
+      </div>
+      <div class="step-card" data-step="03">
+        <div class="step-icon">⚙️</div>
+        <h3>Benchmark Algorithms</h3>
+        <p>All 7 algorithms are trained and tested on YOUR data. Real train/predict times, accuracy, F1, precision, recall.</p>
+      </div>
+      <div class="step-card" data-step="04">
+        <div class="step-icon">🏆</div>
+        <h3>Recommend & Explain</h3>
+        <p>We rank every model and explain <em>why</em> the winner suits your dataset's properties — backed by charts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ VS CHATGPT ══════ -->
+<section class="section vs-section" id="vs-chatgpt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Comparison</div>
+      <h2 class="section-title">Why Not Just Ask ChatGPT?</h2>
+      <p class="section-sub">Great question. Here's the honest answer.</p>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-card chatgpt-card">
+        <div class="vs-logo">🤖 ChatGPT</div>
+        <ul class="vs-list bad">
+          <li>❌ Gives generic advice ("try Random Forest or SVM")</li>
+          <li>❌ Never sees your actual data</li>
+          <li>❌ No real accuracy numbers for your dataset</li>
+          <li>❌ Can't show you confusion matrices or feature importance</li>
+          <li>❌ You have to trust its opinion</li>
+          <li>❌ No visual comparison between algorithms</li>
+        </ul>
+      </div>
+      <div class="vs-divider">
+        <div class="vs-vs">VS</div>
+      </div>
+      <div class="vs-card algosense-card">
+        <div class="vs-logo">⚡ AlgoSense</div>
+        <ul class="vs-list good">
+          <li>✅ Runs 7 algorithms on YOUR actual data</li>
+          <li>✅ Real accuracy, F1, precision, recall scores</li>
+          <li>✅ Actual training & prediction timing</li>
+          <li>✅ Confusion matrix heatmaps per algorithm</li>
+          <li>✅ Feature importance chart (Random Forest)</li>
+          <li>✅ Radar charts for multi-metric comparison</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ UPLOAD ══════════ -->
+<section class="section upload-section" id="upload-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Try It Now</div>
+      <h2 class="section-title">Analyze Your Dataset</h2>
+      <p class="section-sub">Supports classification tasks. Accepts any CSV file up to 32 MB.</p>
+    </div>
+
+    <div class="upload-card" id="uploadCard">
+      <div class="upload-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".csv" hidden />
+        <div class="drop-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <p class="drop-title">Drop your CSV here</p>
+        <p class="drop-sub">or <button class="link-btn" id="browseBtn">browse files</button></p>
+        <div class="file-info" id="fileInfo" style="display:none">
+          <div class="file-badge">
+            <span class="file-icon">📄</span>
+            <span id="fileName"></span>
+            <button class="remove-file" id="removeFile">✕</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="target-row" id="targetRow" style="display:none">
+        <label for="targetSelect">Target Column (to predict):</label>
+        <div class="select-wrap">
+          <select id="targetSelect"></select>
+        </div>
+      </div>
+
+      <button class="btn-primary btn-analyze" id="analyzeBtn" disabled>
+        <span id="analyzeBtnText">Select a file first</span>
+        <div class="btn-spinner" id="btnSpinner" style="display:none"></div>
+      </button>
+
+      <div class="sample-datasets">
+        <p>No dataset? Try a sample:</p>
+        <div class="sample-btns">
+          <button class="sample-btn" onclick="loadSample('iris')">🌸 Iris</button>
+          <button class="sample-btn" onclick="loadSample('wine')">🍷 Wine</button>
+          <button class="sample-btn" onclick="loadSample('breast_cancer')">🔬 Breast Cancer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ RESULTS ═════════ -->
+<section class="results-section" id="resultsSection" style="display:none">
+  <div class="container">
+
+    <!-- WINNER BANNER -->
+    <div class="winner-banner" id="winnerBanner">
+      <div class="winner-crown">👑</div>
+      <div class="winner-info">
+        <p class="winner-label">Best Algorithm for Your Dataset</p>
+        <h2 class="winner-name" id="winnerName">Random Forest</h2>
+        <p class="winner-score" id="winnerScore">F1: 97.2% · Accuracy: 98.1%</p>
+      </div>
+      <div class="winner-badge-glow"></div>
+    </div>
+
+    <!-- META FEATURES -->
+    <div class="results-block">
+      <h3 class="block-title">📊 Dataset Meta-Features</h3>
+      <p class="block-sub">Key characteristics extracted from your data that influence algorithm selection</p>
+      <div class="meta-grid" id="metaGrid"></div>
+    </div>
+
+    <!-- TABS -->
+    <div class="results-block">
+      <h3 class="block-title">📈 Algorithm Comparison</h3>
+      <p class="block-sub">Every algorithm was trained and tested on your actual dataset</p>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="leaderboard">🏆 Leaderboard</button>
+        <button class="tab-btn" data-tab="barchart">📊 Accuracy Chart</button>
+        <button class="tab-btn" data-tab="radarchart">🕸️ Radar Chart</button>
+        <button class="tab-btn" data-tab="timing">⏱️ Speed vs Accuracy</button>
+        <button class="tab-btn" data-tab="importance">🌿 Feature Importance</button>
+        <button class="tab-btn" data-tab="confusion">🔲 Confusion Matrix</button>
+      </div>
+
+      <!-- Leaderboard -->
+      <div class="tab-panel active" id="tab-leaderboard">
+        <div class="table-wrap">
+          <table class="leaderboard-table" id="leaderboardTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Algorithm</th>
+                <th>Accuracy</th>
+                <th>F1 Score</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>Train Time</th>
+                <th>Pred Time</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bar Chart -->
+      <div class="tab-panel" id="tab-barchart">
+        <div class="chart-container">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Radar Chart -->
+      <div class="tab-panel" id="tab-radarchart">
+        <div class="chart-container radar-container">
+          <canvas id="radarChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Timing Scatter -->
+      <div class="tab-panel" id="tab-timing">
+        <div class="chart-container">
+          <canvas id="timingChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Feature Importance -->
+      <div class="tab-panel" id="tab-importance">
+        <div class="chart-container">
+          <canvas id="importanceChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Confusion Matrix -->
+      <div class="tab-panel" id="tab-confusion">
+        <div class="confusion-selector">
+          <label>Select Algorithm:</label>
+          <div class="select-wrap" style="min-width:200px">
+            <select id="confusionSelect"></select>
+          </div>
+        </div>
+        <div id="confusionMatrixWrap" class="cm-wrap"></div>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="results-block explain-block" id="explainBlock">
+      <h3 class="block-title">🧠 Why This Algorithm?</h3>
+      <p class="block-sub">Meta-learning driven explanation based on your dataset's properties</p>
+      <div class="explain-grid" id="explainGrid"></div>
+    </div>
+
+    <!-- DATA PREVIEW -->
+    <div class="results-block">
+      <h3 class="block-title">🔍 Dataset Preview</h3>
+      <p class="block-sub">First 6 rows of your processed dataset</p>
+      <div class="table-wrap">
+        <table class="preview-table" id="previewTable"></table>
+      </div>
+    </div>
+
+    <!-- RE-ANALYZE -->
+    <div class="re-analyze">
+      <button class="btn-ghost" onclick="resetAnalysis()">
+        ← Analyze Another Dataset
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">AlgoSense</span>
+      </div>
+      <p class="footer-copy">Built with Meta-Learning · Powered by scikit-learn · Made for FOML</p>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
